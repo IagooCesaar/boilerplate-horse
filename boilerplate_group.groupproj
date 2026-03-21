@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{53AABCA7-7967-4A3F-ABF0-31224988462D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="boilerplate_backend.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="boilerplate_backend_test.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="boilerplate_backend">
+        <MSBuild Projects="boilerplate_backend.dproj"/>
+    </Target>
+    <Target Name="boilerplate_backend:Clean">
+        <MSBuild Projects="boilerplate_backend.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="boilerplate_backend:Make">
+        <MSBuild Projects="boilerplate_backend.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="boilerplate_backend_test">
+        <MSBuild Projects="boilerplate_backend_test.dproj"/>
+    </Target>
+    <Target Name="boilerplate_backend_test:Clean">
+        <MSBuild Projects="boilerplate_backend_test.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="boilerplate_backend_test:Make">
+        <MSBuild Projects="boilerplate_backend_test.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="boilerplate_backend;boilerplate_backend_test"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="boilerplate_backend:Clean;boilerplate_backend_test:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="boilerplate_backend:Make;boilerplate_backend_test:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
