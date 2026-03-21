@@ -20,6 +20,8 @@ type
     function GetTitle: string;
     function GetDescription: string;
     function GetVersion: string;
+
+    procedure StartWorkers;
   public
     class function GetInstance: TApp;
 
@@ -45,7 +47,8 @@ uses
   System.SyncObjs, System.SysUtils, System.DateUtils, System.StrUtils, System.Types, System.IniFiles,
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, App.Controller.Factory,
-  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig;
+  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Main,
+  Infraestructure.Worker.Registry, Infraestructure.Worker.Config;
 
 { TApp }
 
@@ -187,14 +190,38 @@ end;
 
 procedure TApp.Start(APort: Integer);
 begin
+  StartWorkers;
+
   THorse.Listen(APort,
     procedure begin
       {$IF defined(CONSOLE) and (not defined(TEST))}
       Writeln(Format('Server is runing on %s:%d', [THorse.Host, THorse.Port]));
       Writeln(Format('Try use Swagger on %s', [SwaggerURL]));
       Readln;
+      TWorkerMain.GracefullShutdown;
       {$ENDIF}
     end);
+end;
+
+procedure TApp.StartWorkers;
+begin
+  TWorkerRegistry.GetInstance.AddWorker(TWorkerConfig.Create(
+    'Worker Test',
+    1000 * 15,
+    procedure
+    begin
+      var LArq := TStringList.Create;
+      try
+        LArq.LoadFromFile('C:\Temp\teste.txt');
+        LArq.Add(DateTimeToStr(Now));
+        LArq.SaveToFile('C:\Temp\teste.txt');
+      finally
+        LArq.Free;
+      end;
+    end
+  ));
+
+  TWorkerMain.Run;
 end;
 
 procedure TApp.Stop;

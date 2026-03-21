@@ -16,7 +16,12 @@ uses
   DTO.Infraestructure.ApiError in 'src\dto\DTO.Infraestructure.ApiError.pas',
   Infraestructure.DatabaseConfig.Intf in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas',
   Infraestructure.DatabaseConfig in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas',
-  Infraestructure.DatabaseConfig.Provider.Ini in 'src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas';
+  Infraestructure.DatabaseConfig.Provider.Ini in 'src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas',
+  Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas',
+  Infraestructure.Worker.Main in 'src\infraestructure\worker\Infraestructure.Worker.Main.pas',
+  Infraestructure.Worker.Config in 'src\infraestructure\worker\Infraestructure.Worker.Config.pas',
+  Infraestructure.Worker.Registry in 'src\infraestructure\worker\Infraestructure.Worker.Registry.pas',
+  Infraestructure.Worker.HandleException in 'src\infraestructure\worker\Infraestructure.Worker.HandleException.pas';
 
 begin
   var App := TApp.GetInstance;

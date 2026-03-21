@@ -181,6 +181,11 @@
         <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas"/>
         <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas"/>
         <DCCReference Include="src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Intf.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Main.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Config.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Registry.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.HandleException.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
