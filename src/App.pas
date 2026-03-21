@@ -213,11 +213,20 @@ begin
       var LArq := TStringList.Create;
       try
         LArq.LoadFromFile('C:\Temp\teste.txt');
-        LArq.Add(DateTimeToStr(Now));
+        LArq.Add('This writes on TXT - '+DateTimeToStr(Now));
         LArq.SaveToFile('C:\Temp\teste.txt');
       finally
         LArq.Free;
       end;
+    end
+  ));
+
+  TWorkerRegistry.GetInstance.AddWorker(TWorkerConfig.Create(
+    'Worker Test',
+    1000 * 22,
+    procedure
+    begin
+      Writeln('This writes on Console '+DateTimeToStr(Now));
     end
   ));
 

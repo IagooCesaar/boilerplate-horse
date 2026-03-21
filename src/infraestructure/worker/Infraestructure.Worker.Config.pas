@@ -19,10 +19,6 @@ implementation
 
 { TWorkerConfig }
 
-
-
-{ TWorkerConfig }
-
 constructor TWorkerConfig.Create(const ANome: string; const AIntervalo: Integer; AProc: TProc; const AEnabled: Boolean);
 begin
   Nome := ANome;
