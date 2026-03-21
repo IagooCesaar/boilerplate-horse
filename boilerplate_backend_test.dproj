@@ -5,8 +5,8 @@
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
+        <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Console</AppType>
         <MainSource>boilerplate_backend_test.dpr</MainSource>
     </PropertyGroup>
@@ -92,6 +92,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>dxPScxCommonRS29;dxPSdxChartControlLnkRS29;dxRibbonRS29;vclwinx;DataSnapServer;dxPScxExtCommonRS29;dxRichEditControlCoreRS29;fmx;dxSpreadSheetReportDesignerRS29;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;dxComnRS29;appanalytics;IndyProtocols;vclx;dxBarExtDBItemsRS29;dbxcds;vcledge;cxVerticalGridRS29;dxFlowChartDesignerRS29;cxFireDACAdaptersRS29;cxSchedulerWebServiceStorageRS29;DBXFirebirdDriver;dxRichEditControlRS29;dxPsPrVwAdvRS29;FireDACSqliteDriver;DbxClientDriver;dxPSdxGaugeControlLnkRS29;soapmidas;dxRibbonCustomizationFormRS29;dbexpress;dxEMFRS29;dxDockingRS29;inet;vcltouch;dxPSdxFCLnkRS29;dxorgcRS29;FireDACDBXDriver;dxSpreadSheetCoreConditionalFormattingDialogsRS29;fmxdae;dxPSRichEditControlLnkRS29;dxPSdxSpreadSheetLnkRS29;CustomIPTransport;FireDACMSSQLDriver;cxADOAdaptersRS29;dxPSPrVwRibbonRS29;IndySystem;dxPScxTLLnkRS29;dxPSdxDBOCLnkRS29;dxGDIPlusRS29;vclFireDAC;dxPSCoreRS29;dxSpreadSheetRS29;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;cxGridEMFRS29;dxPSdxMapControlLnkRS29;dxGanttControlRS29;dxPScxVGridLnkRS29;dxPScxPivotGridLnkRS29;dxADOServerModeRS29;dxWizardControlRS29;bindcompdbx;rtl;FireDACMySQLDriver;dxCloudServiceLibraryRS29;dxServerModeRS29;DBXSqliteDriver;dxBarDBNavRS29;DBXSybaseASEDriver;dxSpreadSheetCoreRS29;dxNavBarRS29;vclimg;DataSnapFireDAC;inetdbxpress;FireDAC;xmlrtl;dxFireDACEMFRS29;dsnap;FireDACDb2Driver;dxPSdxLCLnkRS29;DBXOracleDriver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;DatasnapConnectorsFreePascal;dxPSLnksRS29;dxmdsRS29;dxPSdxOCLnkRS29;cxSchedulerGridRS29;dxPScxSchedulerLnkRS29;emshosting;dxADOEMFRS29;dxChartControlRS29;dxPSdxDBTVLnkRS29;FireDACCommonDriver;dxGaugeControlRS29;IndyIPClient;dxPDFViewerRS29;bindcompvclwinx;dxOrgChartAdvancedCustomizeFormRS29;emsedge;bindcompfmx;dxBarExtItemsRS29;dxFlowChartLayoutsRS29;inetdb;dxdborRS29;FireDACASADriver;dxPScxGridLnkRS29;cxPivotGridChartRS29;vclactnband;fmxFireDAC;FireDACInfxDriver;dxRichEditCoreRS29;cxTreeListdxBarPopupMenuRS29;DBXMySQLDriver;dxFlowChartAdvancedCustomizeFormRS29;VclSmp;cxSchedulerRibbonStyleEventEditorRS29;DataSnapCommon;fmxase;dxtrmdRS29;dxFlowChartRS29;DBXOdbcDriver;dbrtl;dxPScxPCProdRS29;FireDACOracleDriver;FireDACMSAccDriver;cxGridRS29;dxSpellCheckerRS29;DataSnapIndy10ServerTransport;dxRichEditDocumentModelRS29;dxMapControlRS29;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;FireDACTDataDriver;cxLibraryRS29;Skia.Package.VCL;vcldb;dxPSdxPDFViewerLnkRS29;cxSchedulerTreeBrowserRS29;bindcomp;dxTabbedMDIRS29;cxExportRS29;IndyCore;RESTBackendComponents;dxHttpIndyRequestRS29;dxTileControlRS29;dxFireDACServerModeRS29;cxPivotGridOLAPRS29;FireDACADSDriver;RESTComponents;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;dxCoreRS29;cxPivotGridRS29;dxdbtrRS29;DBXDb2Driver;dxSkinsCoreRS29;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;dxBarRS29;tethering;bindcompvcl;CloudService;DBXSybaseASADriver;dxSpreadSheetConditionalFormattingDialogsRS29;cxTreeListRS29;soaprtl;dxDBXServerModeRS29;cxSchedulerRS29;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -120,6 +123,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="src\App.pas"/>
+        <DCCReference Include="src\controllers\App.Controller.Example.pas"/>
         <DCCReference Include="src\controllers\App.Controller.Factory.pas"/>
         <DCCReference Include="src\controllers\App.Controller.Infraestructure.pas"/>
         <DCCReference Include="src\controllers\App.Controller.Intf.pas"/>
@@ -130,6 +134,21 @@
         <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas"/>
         <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas"/>
         <DCCReference Include="src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Config.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.HandleException.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Main.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Registry.pas"/>
+        <DCCReference Include="src\repositories\Repository.Intf.pas"/>
+        <DCCReference Include="src\repositories\in-memory\Repository.InMemory.Example.pas"/>
+        <DCCReference Include="src\repositories\in-memory\Repository.InMemory.Factory.pas"/>
+        <DCCReference Include="src\repositories\oficial\Repository.Example.pas"/>
+        <DCCReference Include="src\repositories\oficial\Repository.Factory.pas"/>
+        <DCCReference Include="src\services\Service.Example.pas"/>
+        <DCCReference Include="src\services\Service.Factory.pas"/>
+        <DCCReference Include="src\services\Service.Intf.pas"/>
+        <DCCReference Include="src\tests\integration-tests\IntegrationTest.Config.pas"/>
+        <DCCReference Include="src\tests\unit-test\UnitTest.Example.pas"/>
+        <DCCReference Include="src\tests\integration-tests\IntegrationTest.Example.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -176,6 +195,18 @@
                 <DeployFile LocalName="Win32\Debug\boilerplate_backend_test.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>boilerplate_backend_test.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\boilerplate_backend_test.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>boilerplate_backend_test.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\boilerplate_backend_test.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>boilerplate_backend_test.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1130,8 +1161,8 @@
                 <Platform value="Android">False</Platform>
                 <Platform value="Android64">False</Platform>
                 <Platform value="Linux64">False</Platform>
-                <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win32">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

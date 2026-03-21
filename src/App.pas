@@ -190,7 +190,9 @@ end;
 
 procedure TApp.Start(APort: Integer);
 begin
+  {$IF (not defined(TEST))}
   StartWorkers;
+  {$ENDIF}
 
   THorse.Listen(APort,
     procedure begin
