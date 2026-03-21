@@ -23,9 +23,13 @@ uses
   Infraestructure.Worker.HandleException in 'src\infraestructure\worker\Infraestructure.Worker.HandleException.pas',
   Service.Intf in 'src\services\Service.Intf.pas',
   Service.Factory in 'src\services\Service.Factory.pas',
-  Repositoy.Intf in 'src\repositories\Repositoy.Intf.pas',
+  Repository.Intf in 'src\repositories\Repository.Intf.pas',
   Repository.InMemory.Factory in 'src\repositories\in-memory\Repository.InMemory.Factory.pas',
-  Repository.Factory in 'src\repositories\oficial\Repository.Factory.pas';
+  Repository.Factory in 'src\repositories\oficial\Repository.Factory.pas',
+  Repository.InMemory.Example in 'src\repositories\in-memory\Repository.InMemory.Example.pas',
+  Repository.Example in 'src\repositories\oficial\Repository.Example.pas',
+  Service.Example in 'src\services\Service.Example.pas',
+  App.Controller.Example in 'src\controllers\App.Controller.Example.pas';
 
 begin
   var App := TApp.GetInstance;

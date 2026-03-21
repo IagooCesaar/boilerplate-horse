@@ -21,7 +21,7 @@ type
 implementation
 
 uses
-  System.SysUtils, App.Controller.Infraestructure;
+  System.SysUtils, App.Controller.Infraestructure, App.Controller.Example;
 
 { TAppControllerFactory }
 
@@ -36,16 +36,16 @@ function TAppControllerFactory.Registry(const AContext: string): IAppController;
 begin
   Result := Self;
 
-  TControllerInfraestructure.GetInstance
-    .Registry(AContext);
+  TControllerInfraestructure.GetInstance.Registry(AContext);
+  TControllerExample.GetInstance.Registry(AContext);
 end;
 
 function TAppControllerFactory.SwaggerDefinition(const AContext: string): IAppController;
 begin
   Result := Self;
 
-  TControllerInfraestructure.GetInstance
-    .SwaggerDefinition(AContext)
+  TControllerInfraestructure.GetInstance.SwaggerDefinition(AContext);
+  TControllerExample.GetInstance.SwaggerDefinition(AContext);
 end;
 
 class destructor TAppControllerFactory.UnInitialize;
