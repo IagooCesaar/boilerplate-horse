@@ -5,10 +5,10 @@ interface
 type
   TWorkerMain = class
   private
-    class var FGracefullShutdown: Boolean;
+    class var FGracefullShuttdown: Boolean;
   public
     class procedure Run(const APreventMainThreadShutdown: Boolean = false);
-    class procedure GracefullShutdown;
+    class procedure GracefullShuttdown;
   end;
 
 implementation
@@ -18,15 +18,15 @@ uses
 
 { TWorkerMain }
 
-class procedure TWorkerMain.GracefullShutdown;
+class procedure TWorkerMain.GracefullShuttdown;
 begin
-  FGracefullShutdown := True;
+  FGracefullShuttdown := True;
 end;
 
 class procedure TWorkerMain.Run(const APreventMainThreadShutdown: Boolean);
 begin
-  FGracefullShutdown := False;
   var LWorkers := TWorkerRegistry.GetInstance.GetWorkers;
+  FGracefullShuttdown := False;
   var LQtdWorkers := 0;
   for var LWorker in LWorkers do
   begin
@@ -44,7 +44,7 @@ begin
     TTask.Run(
       procedure
       begin
-        while not FGracefullShutdown do
+        while not FGracefullShuttdown do
         begin
           try
             LWorker.Proc();

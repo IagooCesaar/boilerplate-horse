@@ -200,7 +200,9 @@ begin
       Writeln(Format('Server is runing on %s:%d', [THorse.Host, THorse.Port]));
       Writeln(Format('Try use Swagger on %s', [SwaggerURL]));
       Readln;
-      TWorkerMain.GracefullShutdown;
+
+      Writeln('Shutting down workers gracefully...');
+      TWorkerMain.GracefullShuttdown;
       {$ENDIF}
     end);
 end;
@@ -208,8 +210,8 @@ end;
 procedure TApp.StartWorkers;
 begin
   TWorkerRegistry.GetInstance.AddWorker(TWorkerConfig.Create(
-    'Worker Test',
-    1000 * 15,
+    'Worker Test TXT',
+    1000 * 5,
     procedure
     begin
       var LArq := TStringList.Create;
@@ -224,7 +226,7 @@ begin
   ));
 
   TWorkerRegistry.GetInstance.AddWorker(TWorkerConfig.Create(
-    'Worker Test',
+    'Worker Test CONSOLE',
     1000 * 22,
     procedure
     begin
