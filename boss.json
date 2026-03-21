@@ -12,6 +12,7 @@
 		"github.com/hashload/horse-compression": "^1.1.13",
 		"github.com/hashload/horse-logger": "^2.0.9",
 		"github.com/hashload/horse-logger-provider-console": "^1.0.9",
+		"github.com/hashload/horse-octet-stream": "^1.9.12",
 		"github.com/hashload/jhonson": "^1.2.1",
 		"github.com/iagoocesaar/horse-jsoninterceptor": "^0.0.10",
 		"github.com/iagoocesaar/pascal-database-engine": "^0.0.4",
