@@ -17,11 +17,15 @@ uses
   Infraestructure.DatabaseConfig.Intf in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas',
   Infraestructure.DatabaseConfig in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas',
   Infraestructure.DatabaseConfig.Provider.Ini in 'src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas',
-  Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas',
   Infraestructure.Worker.Main in 'src\infraestructure\worker\Infraestructure.Worker.Main.pas',
   Infraestructure.Worker.Config in 'src\infraestructure\worker\Infraestructure.Worker.Config.pas',
   Infraestructure.Worker.Registry in 'src\infraestructure\worker\Infraestructure.Worker.Registry.pas',
-  Infraestructure.Worker.HandleException in 'src\infraestructure\worker\Infraestructure.Worker.HandleException.pas';
+  Infraestructure.Worker.HandleException in 'src\infraestructure\worker\Infraestructure.Worker.HandleException.pas',
+  Service.Intf in 'src\services\Service.Intf.pas',
+  Service.Factory in 'src\services\Service.Factory.pas',
+  Repositoy.Intf in 'src\repositories\Repositoy.Intf.pas',
+  Repository.InMemory.Factory in 'src\repositories\in-memory\Repository.InMemory.Factory.pas',
+  Repository.Factory in 'src\repositories\oficial\Repository.Factory.pas';
 
 begin
   var App := TApp.GetInstance;
