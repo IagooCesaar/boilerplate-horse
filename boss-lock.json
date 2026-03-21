@@ -1,5 +1,102 @@
 {
 	"hash": "d41d8cd98f00b204e9800998ecf8427e",
 	"updated": "2026-03-21T08:39:41.7539366-03:00",
-	"installedModules": {}
+	"installedModules": {
+		"github.com/dliocode/horse-utils-clientip": {
+			"name": "horse-utils-clientip",
+			"version": "0.0.8",
+			"hash": "83125fa6038e2377749e27e23b8f3aee",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/gabrielbaltazar/gbswagger": {
+			"name": "gbswagger",
+			"version": "3.1.0",
+			"hash": "1d45cb3210674c8eca2d9fe24c675c57",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/handle-exception": {
+			"name": "handle-exception",
+			"version": "0.2.0",
+			"hash": "0890ef500baa3f730bc7bc996051a187",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse": {
+			"name": "horse",
+			"version": "3.1.9",
+			"hash": "ad7ee68a3fa37f9ca203791f350c1e2b",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse-compression": {
+			"name": "horse-compression",
+			"version": "1.1.13",
+			"hash": "a4167c116244c97b2fbfef76d4b69fb8",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse-logger": {
+			"name": "horse-logger",
+			"version": "2.0.9",
+			"hash": "10929e7b892e8491c47a30b3616112d8",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse-logger-provider-console": {
+			"name": "horse-logger-provider-console",
+			"version": "1.0.9",
+			"hash": "d8a9d0ed0d0cd97ea0b6f3bd65f62bc6",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/jhonson": {
+			"name": "jhonson",
+			"version": "1.2.1",
+			"hash": "dda7dc5ade9e50207be4485c5045e47b",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/iagoocesaar/horse-jsoninterceptor": {
+			"name": "horse-jsoninterceptor",
+			"version": "0.0.10",
+			"hash": "155150b3fd78c708529a7f8c6ac0ecd5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/iagoocesaar/pascal-database-engine": {
+			"name": "pascal-database-engine",
+			"version": "0.0.4",
+			"hash": "15ca79fdcab92295975b461669913bff",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.5.9",
+			"hash": "62a95816d2cac761b15521c06fe43109",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/restrequest4delphi": {
+			"name": "restrequest4delphi",
+			"version": "v4.0.23",
+			"hash": "9c56b6064b12085cf05b0696a11ea6e4",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
 }
