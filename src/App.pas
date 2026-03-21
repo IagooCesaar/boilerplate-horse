@@ -69,7 +69,7 @@ end;
 procedure TApp.ConfigSwagger;
 begin
   Swagger
-    .BasePath(Context)
+    .BasePath('')
     //.AddBasicSecurity.&End
     //.AddBearerSecurity
     .Register

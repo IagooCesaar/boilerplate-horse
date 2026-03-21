@@ -16,7 +16,7 @@ uses
   DTO.Infraestructure.ApiError in 'src\dto\DTO.Infraestructure.ApiError.pas';
 
 begin
-  var App := TApp.Create;
+  var App := TApp.GetInstance;
   try
     try
       App.Start(9000);

@@ -13,7 +13,14 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  App in 'src\App.pas';
+  App in 'src\App.pas',
+  App.Controller.Factory in 'src\controllers\App.Controller.Factory.pas',
+  App.Controller.Infraestructure in 'src\controllers\App.Controller.Infraestructure.pas',
+  App.Controller.Intf in 'src\controllers\App.Controller.Intf.pas',
+  DTO.Infraestructure.ApiError in 'src\dto\DTO.Infraestructure.ApiError.pas',
+  DTO.Infraestructure.ApiVersion in 'src\dto\DTO.Infraestructure.ApiVersion.pas',
+  DTO.Infraestructure.Healthcheck in 'src\dto\DTO.Infraestructure.Healthcheck.pas',
+  Infraestructure.BaseClass in 'src\infraestructure\Infraestructure.BaseClass.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}
