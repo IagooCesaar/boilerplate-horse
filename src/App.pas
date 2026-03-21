@@ -148,7 +148,7 @@ end;
 
 function TApp.GetBaseURL: string;
 begin
-  Result := Format('http://localhost:%d%s/%s', [THorse.Port, Context, 'api']);
+  Result := Format('http://localhost:%d%s', [THorse.Port, Context]);
 end;
 
 function TApp.GetContext: string;

@@ -23,7 +23,7 @@ uses
 procedure TIntegrationTestExample.TestExample;
 begin
   var LResponse := TIntegrationTestConfig.GetInstance.DefaultRequest
-    .Resource('\example')
+    .Resource('/example')
     .Get;
 
   Assert.AreEqual<Integer>(Integer(THTTPStatus.OK), LResponse.StatusCode);
