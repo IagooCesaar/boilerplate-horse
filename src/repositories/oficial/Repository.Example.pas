@@ -28,8 +28,22 @@ begin
   LDados.CreateDataSet;
 
   Result := LDados;
+  {// fazer consulta à base de dados oficial do projeto
+  Result := nil;
 
-  // fazer consulta à base de dados oficial do projeto
+  var LSQL := 'select * from ITEM where cod_item = :cod_item';
+  var ds := TDatabaseFactory.New
+    .SQL
+    .SQL(LSQL)
+    .ParamList
+      .AddInteger('cod_item', ACodItem)
+      .&End
+    .Open;
+
+  if ds.isEmpty
+  then Exit;
+
+  Result := AtribuiCampos(ds);}
 end;
 
 class function TRepositoryExample.New: IRepositoryExample;
