@@ -20,7 +20,10 @@ uses
   DTO.Infraestructure.ApiError in 'src\dto\DTO.Infraestructure.ApiError.pas',
   DTO.Infraestructure.ApiVersion in 'src\dto\DTO.Infraestructure.ApiVersion.pas',
   DTO.Infraestructure.Healthcheck in 'src\dto\DTO.Infraestructure.Healthcheck.pas',
-  Infraestructure.BaseClass in 'src\infraestructure\Infraestructure.BaseClass.pas';
+  Infraestructure.BaseClass in 'src\infraestructure\Infraestructure.BaseClass.pas',
+  Infraestructure.DatabaseConfig.Intf in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas',
+  Infraestructure.DatabaseConfig in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas',
+  Infraestructure.DatabaseConfig.Provider.Ini in 'src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

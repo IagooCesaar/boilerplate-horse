@@ -3,7 +3,7 @@ unit App;
 interface
 
 uses
-  System.Classes;
+  System.Classes, Infraestructure.DatabaseConfig.Provider.Ini;
 
 type
   TApp = class
@@ -45,14 +45,19 @@ uses
   System.SyncObjs, System.SysUtils, System.DateUtils, System.StrUtils, System.Types, System.IniFiles,
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, App.Controller.Factory,
-  DTO.Infraestructure.ApiError;
+  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig;
 
 { TApp }
 
 
 procedure TApp.ConfigDatabase;
 begin
-  { TODO -oICFN : Infraestructure }
+  var LIniFileName := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)))+
+    'myapp_database_config.ini';
+
+  TInfraestructureDatabaseConfig.Configure(
+    TInfraestructureDatabaseConfigProviderIni.New(LIniFileName)
+  );
 end;
 
 procedure TApp.ConfigLogger;

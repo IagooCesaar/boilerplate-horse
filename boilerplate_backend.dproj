@@ -178,6 +178,9 @@
         <DCCReference Include="src\infraestructure\Infraestructure.BaseClass.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.ApiVersion.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.ApiError.pas"/>
+        <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.Intf.pas"/>
+        <DCCReference Include="src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas"/>
+        <DCCReference Include="src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
