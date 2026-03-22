@@ -8,7 +8,7 @@ uses
 type
   TWorkerRegistry = class
   private
-    FWorkers: TList<TWorkerConfig>;
+    FWorkers: TObjectList<TWorkerConfig>;
     class var FRegistry: TWorkerRegistry;
   public
     class function GetInstance: TWorkerRegistry;
@@ -44,7 +44,7 @@ constructor TWorkerRegistry.Create;
 begin
   GLock.Acquire;
   try
-    FWorkers := TList<TWorkerConfig>.Create;
+    FWorkers := TObjectList<TWorkerConfig>.Create(True);
   finally
     GLock.Release;
   end;

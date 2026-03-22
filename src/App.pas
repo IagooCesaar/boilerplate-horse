@@ -211,7 +211,7 @@ procedure TApp.StartWorkers;
 begin
   TWorkerRegistry.GetInstance.AddWorker(TWorkerConfig.Create(
     'Worker Test TXT',
-    1000 * 5,
+    1000 * 10,
     procedure
     begin
       var LArq := TStringList.Create;
