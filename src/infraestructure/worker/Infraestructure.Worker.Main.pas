@@ -36,8 +36,10 @@ begin
 end;
 
 procedure TWorkerMain.ExecuteTask(Sender: TObject);
+const ONE_SECOND = 1000;
 begin
   var LWorkerLocal := Sender as TWorkerConfig;
+  var LRemaingInterval := LWorkerLocal.Intervalo;
 
   while not FGracefullShuttdown do
   begin
@@ -48,8 +50,24 @@ begin
         Writeln(Format('[%s] ERRO: %s', [LWorkerLocal.Nome, E.Message]));
     end;
 
-    Sleep(LWorkerLocal.Intervalo);
+    repeat
+      if LRemaingInterval > ONE_SECOND then
+      begin
+        Dec(LRemaingInterval, ONE_SECOND);
+        Sleep(ONE_SECOND)
+      end
+      else
+      begin
+        Sleep(LRemaingInterval);
+        LRemaingInterval:= 0;
+      end;
+    until (LRemaingInterval = 0) or (FGracefullShuttdown);
+    LRemaingInterval := LWorkerLocal.Intervalo;
   end;
+
+  {$IFDEF CONSOLE}
+  Writeln(Format('Worker "%s" stopped', [LWorkerLocal.Nome]));
+  {$ENDIF}
 end;
 
 class procedure TWorkerMain.GracefullShuttdown;

@@ -8,8 +8,8 @@ uses
 type
   TWorkerExample = class(TInterfacedObject, IWorkerFacade)
   private
-    function PrepareWorker1: TWorkerConfig;
-    function PrepareWorker2: TWorkerConfig;
+    function WorkerTXT: TWorkerConfig;
+    function WorkerCONSOLE: TWorkerConfig;
   public
     class function New: IWorkerFacade;
 
@@ -27,8 +27,8 @@ uses
 function TWorkerExample.GetWorkers: TArray<TWorkerConfig>;
 begin
   SetLength(Result, 2);
-  Result[0] := PrepareWorker1;
-  Result[1] := PrepareWorker2;
+  Result[0] := WorkerCONSOLE;
+  Result[1] := WorkerTXT;
 end;
 
 class function TWorkerExample.New: IWorkerFacade;
@@ -36,7 +36,7 @@ begin
   Result := Self.Create;
 end;
 
-function TWorkerExample.PrepareWorker1: TWorkerConfig;
+function TWorkerExample.WorkerTXT: TWorkerConfig;
 begin
   Result := TWorkerConfig.Create(
     'Worker Test TXT',
@@ -48,7 +48,7 @@ begin
   );
 end;
 
-function TWorkerExample.PrepareWorker2: TWorkerConfig;
+function TWorkerExample.WorkerCONSOLE: TWorkerConfig;
 begin
   Result :=  TWorkerConfig.Create(
     'Worker Test CONSOLE',
