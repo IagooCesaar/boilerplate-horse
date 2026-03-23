@@ -7,25 +7,33 @@ uses
 
 type
   TWorkerConfig = class
-    public
-      Nome: string;
-      Intervalo: Integer;
-      Proc: TProc;
-      Enabled: Boolean;
-      ArrayIndex: Integer;
-      constructor Create(const ANome: string; const AIntervalo: Integer; AProc: TProc; const AEnabled: Boolean = True);
+  private
+
+    FInterval: Integer;
+    FName: string;
+    FProc: TProc;
+    FEnabled: Boolean;
+    FArrayIndex: Integer;
+  public
+    constructor Create(const AName: string; const AInterval: Integer; AProc: TProc; const AEnabled: Boolean = True);
+
+    property Name: string read FName write FName;
+    property Interval: Integer read FInterval write FInterval;
+    property Proc: TProc read FProc write FProc;
+    property Enabled: Boolean read FEnabled write FEnabled;
+    property ArrayIndex: Integer read FArrayIndex write FArrayIndex;
   end;
 
 implementation
 
 { TWorkerConfig }
 
-constructor TWorkerConfig.Create(const ANome: string; const AIntervalo: Integer; AProc: TProc; const AEnabled: Boolean);
+constructor TWorkerConfig.Create(const AName: string; const AInterval: Integer; AProc: TProc; const AEnabled: Boolean);
 begin
-  Nome := ANome;
-  Intervalo := AIntervalo;
-  Proc := AProc;
-  Enabled := AEnabled;
+  FName := AName;
+  FInterval := AInterval;
+  FProc := AProc;
+  FEnabled := AEnabled;
 end;
 
 end.

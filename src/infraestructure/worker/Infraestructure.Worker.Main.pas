@@ -39,7 +39,7 @@ procedure TWorkerMain.ExecuteTask(Sender: TObject);
 const ONE_SECOND = 1000;
 begin
   var LWorkerLocal := Sender as TWorkerConfig;
-  var LRemaingInterval := LWorkerLocal.Intervalo;
+  var LRemaingInterval := LWorkerLocal.Interval;
 
   while not FGracefullShuttdown do
   begin
@@ -47,7 +47,7 @@ begin
       LWorkerLocal.Proc();
     except
       on E: Exception do
-        Writeln(Format('[%s] ERRO: %s', [LWorkerLocal.Nome, E.Message]));
+        Writeln(Format('[%s] ERRO: %s', [LWorkerLocal.Name, E.Message]));
     end;
 
     repeat
@@ -62,11 +62,11 @@ begin
         LRemaingInterval:= 0;
       end;
     until (LRemaingInterval = 0) or (FGracefullShuttdown);
-    LRemaingInterval := LWorkerLocal.Intervalo;
+    LRemaingInterval := LWorkerLocal.Interval;
   end;
 
   {$IFDEF CONSOLE}
-  Writeln(Format('Worker "%s" stopped', [LWorkerLocal.Nome]));
+  Writeln(Format('Worker "%s" stopped', [LWorkerLocal.Name]));
   {$ENDIF}
 end;
 
@@ -99,13 +99,13 @@ begin
     if (not LWorker.Enabled) or not Assigned(LWorker.Proc) then
     begin
       {$IFDEF CONSOLE}
-      Writeln(Format('Worker "%s" will not start', [LWorker.Nome]));
+      Writeln(Format('Worker "%s" will not start', [LWorker.Name]));
       {$ENDIF}
       Continue;
     end;
 
     {$IFDEF CONSOLE}
-    Writeln(Format('Starting Worker "%s" with interval %d', [LWorker.Nome, LWorker.Intervalo]));
+    Writeln(Format('Starting Worker "%s" with interval %d', [LWorker.Name, LWorker.Interval]));
     {$ENDIF}
 
     TTask.Run(LWorker, ExecuteTask);
