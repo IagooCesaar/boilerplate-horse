@@ -12,7 +12,7 @@ type
 
     { IBOExample }
     procedure WriteOnConsole;
-    procedure WirteOnTextFile;
+    procedure WriteOnTextFile;
   end;
 
 implementation
@@ -27,7 +27,7 @@ begin
   Result := Self.Create;
 end;
 
-procedure TBOExample.WirteOnTextFile;
+procedure TBOExample.WriteOnTextFile;
 begin
   var LArq := TStringList.Create;
   try

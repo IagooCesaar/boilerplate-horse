@@ -32,7 +32,10 @@ uses
   App.Controller.Example in 'src\controllers\App.Controller.Example.pas',
   BO.Intf in 'src\bo\BO.Intf.pas',
   BO.Factory in 'src\bo\BO.Factory.pas',
-  BO.Example in 'src\bo\BO.Example.pas';
+  BO.Example in 'src\bo\BO.Example.pas',
+  Worker.Intf in 'src\workers\Worker.Intf.pas',
+  Worker.Factory in 'src\workers\Worker.Factory.pas',
+  Worker.Example in 'src\workers\Worker.Example.pas';
 
 begin
   var App := TApp.GetInstance;

@@ -201,6 +201,9 @@
         <DCCReference Include="src\bo\BO.Intf.pas"/>
         <DCCReference Include="src\bo\BO.Factory.pas"/>
         <DCCReference Include="src\bo\BO.Example.pas"/>
+        <DCCReference Include="src\workers\Worker.Intf.pas"/>
+        <DCCReference Include="src\workers\Worker.Factory.pas"/>
+        <DCCReference Include="src\workers\Worker.Example.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

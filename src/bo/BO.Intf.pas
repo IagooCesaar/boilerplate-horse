@@ -6,7 +6,7 @@ type
   IBOExample = interface
     ['{CFC15DCF-4F50-4388-961D-46BEB312BA36}']
     procedure WriteOnConsole;
-    procedure WirteOnTextFile;
+    procedure WriteOnTextFile;
   end;
 
   IBOFactory = interface
