@@ -34,10 +34,10 @@ begin
   Result := LDados;
 
   {// fazer consulta à base de dados oficial do projeto
-  Result := nil;
+  Result := nil;  // Entity
 
   var LSQL := 'select * from ITEM where cod_item = :cod_item';
-  var ds := TDatabaseFactory.New
+  var LDataset := TDatabaseFactory.New
     .SQL
     .SQL(LSQL)
     .ParamList
@@ -45,10 +45,10 @@ begin
       .&End
     .Open;
 
-  if ds.isEmpty
+  if LDataset.isEmpty
   then Exit;
 
-  Result := AtribuiCampos(ds);}
+  Result := DatasetToEntity(LDataset);}
 end;
 
 class function TRepositoryExample.New: IRepositoryExample;
