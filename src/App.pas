@@ -20,8 +20,6 @@ type
     function GetTitle: string;
     function GetDescription: string;
     function GetVersion: string;
-
-    procedure StartWorkers;
   public
     class function GetInstance: TApp;
 
@@ -47,7 +45,7 @@ uses
   System.SyncObjs, System.SysUtils, System.DateUtils, System.StrUtils, System.Types, System.IniFiles,
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, Controller.Factory,
-  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Worker.Factory;
+  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Factory;
 
 { TApp }
 
@@ -192,7 +190,7 @@ end;
 procedure TApp.Start(APort: Integer);
 begin
   {$IF (not defined(TEST))}
-  StartWorkers;
+  TWorkerFactory.New.Run;
   {$ENDIF}
 
   THorse.Listen(APort,
@@ -208,16 +206,12 @@ begin
     end);
 end;
 
-procedure TApp.StartWorkers;
-begin
-  TWorkerFactory.New
-    .Run;
-end;
-
 procedure TApp.Stop;
 begin
   while THorse.IsRunning do
     THorse.StopListen;
+
+  TWorkerFactory.New.GracefullShuttdown;
 end;
 
 end.

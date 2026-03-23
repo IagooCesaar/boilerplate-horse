@@ -188,7 +188,6 @@
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Main.pas"/>
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Config.pas"/>
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Registry.pas"/>
-        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.HandleException.pas"/>
         <DCCReference Include="src\services\Service.Intf.pas"/>
         <DCCReference Include="src\services\Service.Factory.pas"/>
         <DCCReference Include="src\repositories\Repository.Intf.pas"/>
@@ -201,8 +200,8 @@
         <DCCReference Include="src\bo\BO.Intf.pas"/>
         <DCCReference Include="src\bo\BO.Factory.pas"/>
         <DCCReference Include="src\bo\BO.Example.pas"/>
-        <DCCReference Include="src\workers\Worker.Intf.pas"/>
-        <DCCReference Include="src\workers\Worker.Factory.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Intf.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Factory.pas"/>
         <DCCReference Include="src\workers\Worker.Example.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

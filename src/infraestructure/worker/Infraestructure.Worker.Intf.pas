@@ -1,4 +1,4 @@
-unit Worker.Intf;
+unit Infraestructure.Worker.Intf;
 
 interface
 

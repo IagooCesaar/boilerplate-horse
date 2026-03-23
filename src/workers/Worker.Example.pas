@@ -3,7 +3,7 @@ unit Worker.Example;
 interface
 
 uses
-  Worker.Intf, Infraestructure.Worker.Config;
+  Infraestructure.Worker.Intf, Infraestructure.Worker.Config;
 
 type
   TWorkerExample = class(TInterfacedObject, IWorkerFacade)

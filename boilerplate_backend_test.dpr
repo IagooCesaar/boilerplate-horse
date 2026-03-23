@@ -26,7 +26,6 @@ uses
   Infraestructure.DatabaseConfig in 'src\infraestructure\database-config\Infraestructure.DatabaseConfig.pas',
   Infraestructure.DatabaseConfig.Provider.Ini in 'src\infraestructure\database-config\providers\Infraestructure.DatabaseConfig.Provider.Ini.pas',
   Infraestructure.Worker.Config in 'src\infraestructure\worker\Infraestructure.Worker.Config.pas',
-  Infraestructure.Worker.HandleException in 'src\infraestructure\worker\Infraestructure.Worker.HandleException.pas',
   Infraestructure.Worker.Main in 'src\infraestructure\worker\Infraestructure.Worker.Main.pas',
   Infraestructure.Worker.Registry in 'src\infraestructure\worker\Infraestructure.Worker.Registry.pas',
   Repository.Intf in 'src\repositories\Repository.Intf.pas',
@@ -44,8 +43,8 @@ uses
   BO.Factory in 'src\bo\BO.Factory.pas',
   BO.Intf in 'src\bo\BO.Intf.pas',
   Worker.Example in 'src\workers\Worker.Example.pas',
-  Worker.Factory in 'src\workers\Worker.Factory.pas',
-  Worker.Intf in 'src\workers\Worker.Intf.pas';
+  Infraestructure.Worker.Factory in 'src\infraestructure\worker\Infraestructure.Worker.Factory.pas',
+  Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

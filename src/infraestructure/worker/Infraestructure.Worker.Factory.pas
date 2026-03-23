@@ -1,9 +1,9 @@
-unit Worker.Factory;
+unit Infraestructure.Worker.Factory;
 
 interface
 
 uses
-  Worker.Intf;
+  Infraestructure.Worker.Intf;
 
 type
   TWorkerFactory = class(TInterfacedObject, IWorkerFactory)
@@ -19,7 +19,7 @@ type
 implementation
 
 uses
-  Infraestructure.Worker.Registry, Infraestructure.Worker.Config, Worker.Example, Infraestructure.Worker.Main;
+  Infraestructure.Worker.Registry, Infraestructure.Worker.Config, Infraestructure.Worker.Main, Worker.Example;
 
 { TWorkenFactory }
 
