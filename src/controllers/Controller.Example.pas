@@ -1,22 +1,22 @@
-unit App.Controller.Example;
+unit Controller.Example;
 
 interface
 
 uses
-  App.Controller.Intf, Horse;
+  Controller.Intf, Horse;
 
 type
-  TControllerExample = class(TNoRefCountObject, IAppController)
+  TControllerExample = class(TNoRefCountObject, IController)
   private
     class var FController: TControllerExample;
     procedure Example(ARequest: THorseRequest; AResponse: THorseResponse);
   public
-    class function GetInstance: IAppController;
+    class function GetInstance: IController;
     class destructor UnInitialize;
 
-    { IAppController }
-    function Registry(const AContext: string): IAppController;
-    function SwaggerDefinition(const AContext: string): IAppController;
+    { IController }
+    function Registry(const AContext: string): IController;
+    function SwaggerDefinition(const AContext: string): IController;
   end;
 
 implementation
@@ -40,14 +40,14 @@ begin
   LDados.Free;
 end;
 
-class function TControllerExample.GetInstance: IAppController;
+class function TControllerExample.GetInstance: IController;
 begin
   if not Assigned(FController) then
     FController := TControllerExample.Create;
   Result := FController;
 end;
 
-function TControllerExample.Registry(const AContext: string): IAppController;
+function TControllerExample.Registry(const AContext: string): IController;
 begin
   Result := Self;
 
@@ -56,7 +56,7 @@ begin
     .Get('/example', Example)
 end;
 
-function TControllerExample.SwaggerDefinition(const AContext: string): IAppController;
+function TControllerExample.SwaggerDefinition(const AContext: string): IController;
 begin
   Result := Self;
 end;

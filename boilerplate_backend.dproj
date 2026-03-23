@@ -175,9 +175,9 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="src\App.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Intf.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Factory.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Infraestructure.pas"/>
+        <DCCReference Include="src\controllers\Controller.Intf.pas"/>
+        <DCCReference Include="src\controllers\Controller.Factory.pas"/>
+        <DCCReference Include="src\controllers\Controller.Infraestructure.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.Healthcheck.pas"/>
         <DCCReference Include="src\infraestructure\Infraestructure.BaseClass.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.ApiVersion.pas"/>
@@ -197,7 +197,7 @@
         <DCCReference Include="src\repositories\in-memory\Repository.InMemory.Example.pas"/>
         <DCCReference Include="src\repositories\oficial\Repository.Example.pas"/>
         <DCCReference Include="src\services\Service.Example.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Example.pas"/>
+        <DCCReference Include="src\controllers\Controller.Example.pas"/>
         <DCCReference Include="src\bo\BO.Intf.pas"/>
         <DCCReference Include="src\bo\BO.Factory.pas"/>
         <DCCReference Include="src\bo\BO.Example.pas"/>

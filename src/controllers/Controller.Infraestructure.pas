@@ -1,23 +1,23 @@
-unit App.Controller.Infraestructure;
+unit Controller.Infraestructure;
 
 interface
 
 uses
-  App.Controller.Intf, Horse;
+  Controller.Intf, Horse;
 
 type
-  TControllerInfraestructure = class(TNoRefCountObject, IAppController)
+  TControllerInfraestructure = class(TNoRefCountObject, IController)
   private
     class var FController: TControllerInfraestructure;
     procedure Healthcheck(ARequest: THorseRequest; AResponse: THorseResponse);
     procedure Version(ARequest: THorseRequest; AResponse: THorseResponse);
   public
-    class function GetInstance: IAppController;
+    class function GetInstance: IController;
     class destructor UnInitialize;
 
-    { IAppController }
-    function Registry(const AContext: string): IAppController;
-    function SwaggerDefinition(const AContext: string): IAppController;
+    { IController }
+    function Registry(const AContext: string): IController;
+    function SwaggerDefinition(const AContext: string): IController;
   end;
 
 implementation
@@ -28,7 +28,7 @@ uses
 
 { TControllerInfraestructure }
 
-class function TControllerInfraestructure.GetInstance: IAppController;
+class function TControllerInfraestructure.GetInstance: IController;
 begin
   if not Assigned(FController) then
     FController := TControllerInfraestructure.Create;
@@ -43,7 +43,7 @@ begin
   LDto.Free;
 end;
 
-function TControllerInfraestructure.Registry(const AContext: string): IAppController;
+function TControllerInfraestructure.Registry(const AContext: string): IController;
 begin
   Result := Self;
 
@@ -52,7 +52,7 @@ begin
     .Get('/api-version', Version);
 end;
 
-function TControllerInfraestructure.SwaggerDefinition(const AContext: string): IAppController;
+function TControllerInfraestructure.SwaggerDefinition(const AContext: string): IController;
 begin
   Result := Self;
 

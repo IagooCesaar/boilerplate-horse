@@ -46,7 +46,7 @@ implementation
 uses
   System.SyncObjs, System.SysUtils, System.DateUtils, System.StrUtils, System.Types, System.IniFiles,
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
-  DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, App.Controller.Factory,
+  DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, Controller.Factory,
   DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Worker.Factory;
 
 { TApp }
@@ -134,9 +134,12 @@ begin
     ))}
     .Use(HandleException);
 
-  TAppControllerFactory.GetInstance
+  TControllerFactory.GetInstance
     .Registry(Context)
     .SwaggerDefinition(Context);
+
+  TWorkerFactory.New
+    .Registry;
 end;
 
 destructor TApp.Destroy;
@@ -209,7 +212,6 @@ end;
 procedure TApp.StartWorkers;
 begin
   TWorkerFactory.New
-    .Registry
     .Run;
 end;
 

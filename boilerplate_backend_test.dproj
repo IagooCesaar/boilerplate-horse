@@ -134,10 +134,10 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="src\App.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Example.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Factory.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Infraestructure.pas"/>
-        <DCCReference Include="src\controllers\App.Controller.Intf.pas"/>
+        <DCCReference Include="src\controllers\Controller.Example.pas"/>
+        <DCCReference Include="src\controllers\Controller.Factory.pas"/>
+        <DCCReference Include="src\controllers\Controller.Infraestructure.pas"/>
+        <DCCReference Include="src\controllers\Controller.Intf.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.ApiError.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.ApiVersion.pas"/>
         <DCCReference Include="src\dto\DTO.Infraestructure.Healthcheck.pas"/>
@@ -160,6 +160,12 @@
         <DCCReference Include="src\tests\integration-tests\IntegrationTest.Config.pas"/>
         <DCCReference Include="src\tests\unit-test\UnitTest.Example.pas"/>
         <DCCReference Include="src\tests\integration-tests\IntegrationTest.Example.pas"/>
+        <DCCReference Include="src\bo\BO.Example.pas"/>
+        <DCCReference Include="src\bo\BO.Factory.pas"/>
+        <DCCReference Include="src\bo\BO.Intf.pas"/>
+        <DCCReference Include="src\workers\Worker.Example.pas"/>
+        <DCCReference Include="src\workers\Worker.Factory.pas"/>
+        <DCCReference Include="src\workers\Worker.Intf.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

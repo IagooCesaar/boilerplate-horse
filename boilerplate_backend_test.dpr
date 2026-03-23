@@ -14,10 +14,10 @@ uses
   {$ENDIF }
   DUnitX.TestFramework,
   App in 'src\App.pas',
-  App.Controller.Example in 'src\controllers\App.Controller.Example.pas',
-  App.Controller.Factory in 'src\controllers\App.Controller.Factory.pas',
-  App.Controller.Infraestructure in 'src\controllers\App.Controller.Infraestructure.pas',
-  App.Controller.Intf in 'src\controllers\App.Controller.Intf.pas',
+  Controller.Example in 'src\controllers\Controller.Example.pas',
+  Controller.Factory in 'src\controllers\Controller.Factory.pas',
+  Controller.Infraestructure in 'src\controllers\Controller.Infraestructure.pas',
+  Controller.Intf in 'src\controllers\Controller.Intf.pas',
   DTO.Infraestructure.ApiError in 'src\dto\DTO.Infraestructure.ApiError.pas',
   DTO.Infraestructure.ApiVersion in 'src\dto\DTO.Infraestructure.ApiVersion.pas',
   DTO.Infraestructure.Healthcheck in 'src\dto\DTO.Infraestructure.Healthcheck.pas',
@@ -39,7 +39,13 @@ uses
   Service.Intf in 'src\services\Service.Intf.pas',
   IntegrationTest.Config in 'src\tests\integration-tests\IntegrationTest.Config.pas',
   UnitTest.Example in 'src\tests\unit-test\UnitTest.Example.pas',
-  IntegrationTest.Example in 'src\tests\integration-tests\IntegrationTest.Example.pas';
+  IntegrationTest.Example in 'src\tests\integration-tests\IntegrationTest.Example.pas',
+  BO.Example in 'src\bo\BO.Example.pas',
+  BO.Factory in 'src\bo\BO.Factory.pas',
+  BO.Intf in 'src\bo\BO.Intf.pas',
+  Worker.Example in 'src\workers\Worker.Example.pas',
+  Worker.Factory in 'src\workers\Worker.Factory.pas',
+  Worker.Intf in 'src\workers\Worker.Intf.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}
