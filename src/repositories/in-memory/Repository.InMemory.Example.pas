@@ -26,8 +26,12 @@ uses
 function TRepositoryInMemoryExample.GetDados: TDataSet;
 begin
   var LDados := TFDMemTable.Create(nil);
-  LDados.FieldDefs.Add('nome', ftString, 20);
+  LDados.FieldDefs.Add('exemplo', ftString, 20);
   LDados.CreateDataSet;
+
+  LDados.Append;
+  LDados.FieldByName('exemplo').AsString := 'In Memory';
+  LDados.Post;
 
   Result := LDados;
 end;

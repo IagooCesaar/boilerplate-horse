@@ -51,7 +51,6 @@ uses
 
 { TApp }
 
-
 procedure TApp.ConfigDatabase;
 begin
   var LIniFileName := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)))+

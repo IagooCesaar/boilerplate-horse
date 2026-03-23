@@ -24,10 +24,15 @@ uses
 function TRepositoryExample.GetDados: TDataSet;
 begin
   var LDados := TFDMemTable.Create(nil);
-  LDados.FieldDefs.Add('nome', ftString, 20);
+  LDados.FieldDefs.Add('exemplo', ftString, 20);
   LDados.CreateDataSet;
 
+  LDados.Append;
+  LDados.FieldByName('exemplo').AsString := 'Oficial';
+  LDados.Post;
+
   Result := LDados;
+
   {// fazer consulta à base de dados oficial do projeto
   Result := nil;
 
