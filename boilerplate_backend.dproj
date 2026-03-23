@@ -198,6 +198,9 @@
         <DCCReference Include="src\repositories\oficial\Repository.Example.pas"/>
         <DCCReference Include="src\services\Service.Example.pas"/>
         <DCCReference Include="src\controllers\App.Controller.Example.pas"/>
+        <DCCReference Include="src\bo\BO.Intf.pas"/>
+        <DCCReference Include="src\bo\BO.Factory.pas"/>
+        <DCCReference Include="src\bo\BO.Example.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

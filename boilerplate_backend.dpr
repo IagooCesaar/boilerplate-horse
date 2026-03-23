@@ -29,7 +29,10 @@ uses
   Repository.InMemory.Example in 'src\repositories\in-memory\Repository.InMemory.Example.pas',
   Repository.Example in 'src\repositories\oficial\Repository.Example.pas',
   Service.Example in 'src\services\Service.Example.pas',
-  App.Controller.Example in 'src\controllers\App.Controller.Example.pas';
+  App.Controller.Example in 'src\controllers\App.Controller.Example.pas',
+  BO.Intf in 'src\bo\BO.Intf.pas',
+  BO.Factory in 'src\bo\BO.Factory.pas',
+  BO.Example in 'src\bo\BO.Example.pas';
 
 begin
   var App := TApp.GetInstance;
