@@ -45,7 +45,8 @@ uses
   System.SyncObjs, System.SysUtils, System.DateUtils, System.StrUtils, System.Types, System.IniFiles,
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, Controller.Factory,
-  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Factory;
+  DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Factory,
+  Infraestructure.Worker.Horse;
 
 { TApp }
 
@@ -121,6 +122,7 @@ begin
     .Use(Jhonson('UTF-8'))
     .Use(OctetStream)
     .Use(THorseLoggerManager.HorseCallback)
+    .Use(WorkerCallback)
     .Use(HorseSwagger(Context+'/swagger-ui', Context+'/api-docs'))
     {.Use(HorseBasicAuthentication(ValidarLogin,
       THorseBasicAuthenticationConfig.New.SkipRoutes([

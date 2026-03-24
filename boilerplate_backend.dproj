@@ -203,6 +203,7 @@
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Intf.pas"/>
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Factory.pas"/>
         <DCCReference Include="src\workers\Worker.Example.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Horse.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

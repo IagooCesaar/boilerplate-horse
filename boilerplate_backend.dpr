@@ -34,7 +34,8 @@ uses
   BO.Example in 'src\bo\BO.Example.pas',
   Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas',
   Infraestructure.Worker.Factory in 'src\infraestructure\worker\Infraestructure.Worker.Factory.pas',
-  Worker.Example in 'src\workers\Worker.Example.pas';
+  Worker.Example in 'src\workers\Worker.Example.pas',
+  Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas';
 
 begin
   var App := TApp.GetInstance;

@@ -9,12 +9,12 @@ type
   TWorkerMain = class(TComponent)
   private
     FGracefullShuttdown: Boolean;
-    FPreventMainThreadShutdown: Boolean;
+    FPreventMainThreadShuttdown: Boolean;
     procedure ExecuteTask(Sender: TObject);
     procedure Start;
   public
     constructor Create;
-    class procedure Run(const APreventMainThreadShutdown: Boolean = false);
+    class procedure Run(const APreventMainThreadShuttdown: Boolean = false);
     class procedure GracefullShuttdown;
     class destructor Unitialize;
   end;
@@ -32,7 +32,7 @@ var
 constructor TWorkerMain.Create;
 begin
   FGracefullShuttdown := False;
-  FPreventMainThreadShutdown := False;
+  FPreventMainThreadShuttdown := False;
 end;
 
 procedure TWorkerMain.ExecuteTask(Sender: TObject);
@@ -44,7 +44,11 @@ begin
   while not FGracefullShuttdown do
   begin
     try
+      LWorkerLocal.Runnings := LWorkerLocal.Runnings + 1;
+
       LWorkerLocal.Proc();
+
+      LWorkerLocal.SuccessfulRunnings := LWorkerLocal.SuccessfulRunnings + 1;
     except
       on E: Exception do
         Writeln(Format('[%s] ERRO: %s', [LWorkerLocal.Name, E.Message]));
@@ -75,11 +79,11 @@ begin
   GWorkerMain.FGracefullShuttdown := True;
 end;
 
-class procedure TWorkerMain.Run(const APreventMainThreadShutdown: Boolean);
+class procedure TWorkerMain.Run(const APreventMainThreadShuttdown: Boolean);
 begin
   if not Assigned(GWorkerMain) then
     GWorkerMain := TWorkerMain.Create();
-  GWorkerMain.FPreventMainThreadShutdown := APreventMainThreadShutdown;
+  GWorkerMain.FPreventMainThreadShuttdown := APreventMainThreadShuttdown;
 
   GWorkerMain.Start;
 end;
@@ -96,7 +100,7 @@ begin
     LWorker := LWorkers[I];
     LWorker.ArrayIndex := I;
 
-    if (not LWorker.Enabled) or not Assigned(LWorker.Proc) then
+    if not LWorker.Runnable then
     begin
       {$IFDEF CONSOLE}
       Writeln(Format('Worker "%s" will not start', [LWorker.Name]));
@@ -117,7 +121,7 @@ begin
   Writeln(Format('Workers Started: %d', [LQtdWorkers]));
   {$ENDIF}
 
-  if FPreventMainThreadShutdown then
+  if FPreventMainThreadShuttdown then
   begin
     //Sleep(INFINITE);
     {$IFDEF CONSOLE}
