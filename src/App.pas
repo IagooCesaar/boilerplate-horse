@@ -46,7 +46,7 @@ uses
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, Controller.Factory,
   DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Factory,
-  Infraestructure.Worker.Horse, Infraestructure.Worker.ExceptionHandler;
+  Infraestructure.Worker.Horse, Infraestructure.Worker.ExceptionHandler, Infraestructure.Worker.Config;
 
 { TApp }
 
@@ -138,7 +138,14 @@ begin
     .SwaggerDefinition(Context);
 
   TWorkerFactory.New.Registry;
-  TExceptionHandlerManager.GetInstance.UseDefaultHandler;
+  TExceptionHandlerManager.GetInstance
+    .UseDefaultHandler
+    .AddHandler(
+      procedure (AWorker: TWorkerConfig; AException: Exception)
+      begin
+        Writeln(Format('OUTROS EXCPT HNDL - [%s] ERRO: %s', [AWorker.Name, AException.Message]));
+      end
+    );
 end;
 
 destructor TApp.Destroy;
