@@ -45,7 +45,8 @@ uses
   Worker.Example in 'src\workers\Worker.Example.pas',
   Infraestructure.Worker.Factory in 'src\infraestructure\worker\Infraestructure.Worker.Factory.pas',
   Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas',
-  Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas';
+  Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas',
+  Infraestructure.Worker.ExceptionHandler in 'src\infraestructure\worker\Infraestructure.Worker.ExceptionHandler.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

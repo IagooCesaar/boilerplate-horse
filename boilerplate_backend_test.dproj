@@ -166,6 +166,7 @@
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Factory.pas"/>
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Intf.pas"/>
         <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.Horse.pas"/>
+        <DCCReference Include="src\infraestructure\worker\Infraestructure.Worker.ExceptionHandler.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

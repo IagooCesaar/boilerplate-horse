@@ -35,7 +35,8 @@ uses
   Infraestructure.Worker.Intf in 'src\infraestructure\worker\Infraestructure.Worker.Intf.pas',
   Infraestructure.Worker.Factory in 'src\infraestructure\worker\Infraestructure.Worker.Factory.pas',
   Worker.Example in 'src\workers\Worker.Example.pas',
-  Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas';
+  Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas',
+  Infraestructure.Worker.ExceptionHandler in 'src\infraestructure\worker\Infraestructure.Worker.ExceptionHandler.pas';
 
 begin
   var App := TApp.GetInstance;
