@@ -46,7 +46,7 @@ uses
   Horse, Horse.Jhonson, Horse.HandleException, Horse.GBSwagger, Horse.Compression,
   DataSet.Serialize, Horse.OctetStream, Horse.Logger.Manager, Horse.Logger.Provider.Console, Controller.Factory,
   DTO.Infraestructure.ApiError, Infraestructure.DatabaseConfig, Infraestructure.Worker.Factory,
-  Infraestructure.Worker.Horse;
+  Infraestructure.Worker.Horse, Infraestructure.Worker.ExceptionHandler;
 
 { TApp }
 
@@ -137,8 +137,8 @@ begin
     .Registry(Context)
     .SwaggerDefinition(Context);
 
-  TWorkerFactory.New
-    .Registry;
+  TWorkerFactory.New.Registry;
+  TExceptionHandlerManager.GetInstance.UseDefaultHandler;
 end;
 
 destructor TApp.Destroy;

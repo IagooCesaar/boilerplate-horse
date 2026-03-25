@@ -22,7 +22,8 @@ type
 implementation
 
 uses
-  Infraestructure.Worker.Registry, System.Threading, System.SysUtils, Infraestructure.Worker.Config;
+  Infraestructure.Worker.Registry, System.Threading, System.SysUtils, Infraestructure.Worker.Config,
+  Infraestructure.Worker.ExceptionHandler;
 
 var
   GWorkerMain: TWorkerMain;
@@ -51,7 +52,7 @@ begin
       LWorkerLocal.SuccessfulRunnings := LWorkerLocal.SuccessfulRunnings + 1;
     except
       on E: Exception do
-        Writeln(Format('[%s] ERRO: %s', [LWorkerLocal.Name, E.Message]));
+        TExceptionHandlerManager.GetInstance.Handle(LWorkerLocal, E);
     end;
 
     repeat

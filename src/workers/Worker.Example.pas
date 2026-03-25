@@ -10,6 +10,7 @@ type
   private
     function WorkerTXT: TWorkerConfig;
     function WorkerCONSOLE: TWorkerConfig;
+    function WorkerERROR: TWorkerConfig;
   public
     class function New: IWorkerFacade;
 
@@ -20,15 +21,16 @@ type
 implementation
 
 uses
-  BO.Factory;
+  BO.Factory, System.SysUtils;
 
 { TWorkerExample }
 
 function TWorkerExample.GetWorkers: TArray<TWorkerConfig>;
 begin
-  SetLength(Result, 2);
+  SetLength(Result, 3);
   Result[0] := WorkerCONSOLE;
   Result[1] := WorkerTXT;
+  Result[2] := WorkerERROR;
 end;
 
 class function TWorkerExample.New: IWorkerFacade;
@@ -56,6 +58,18 @@ begin
     procedure
     begin
       TBOFactory.New.Example.WriteOnConsole;
+    end
+  );
+end;
+
+function TWorkerExample.WorkerERROR: TWorkerConfig;
+begin
+  Result :=  TWorkerConfig.Create(
+    'Worker Test ERROR',
+    1000 * 20,
+    procedure
+    begin
+      raise Exception.Create('Este é um erro controlado');
     end
   );
 end;
