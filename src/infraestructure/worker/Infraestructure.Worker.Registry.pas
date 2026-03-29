@@ -24,7 +24,7 @@ type
 implementation
 
 uses
-  System.SysUtils, System.SyncObjs, System.StrUtils;
+  System.SysUtils, System.SyncObjs, System.StrUtils, Horse.Exception, Horse;
 
 var
   GLock: TCriticalSection; // thread-safe
@@ -35,6 +35,17 @@ procedure TWorkerRegistry.AddWorker(const AWorker: TWorkerConfig);
 begin
   GLock.Acquire;
   try
+    var LAlreadyExists := False;
+    for var LWorker in FWorkers do
+    begin
+      if LWorker.Key = AWorker.Key then
+      begin
+        raise EHorseException.New
+          .Status(THTTPStatus.InternalServerError)
+          .Error(Format('There is already a worker with the specified key (Worker registered: "%s", new Worker: "%s")',
+            [LWorker.Name, AWorker.Name]));
+      end;
+    end;
     FWorkers.Add(AWorker);
   finally
     GLock.Release;
