@@ -18,6 +18,11 @@ type
     function GetWorkers: TArray<TWorkerConfig>;
   end;
 
+const
+  WORKER_CONSOLE_KEY: TGUID = '{C6A043DA-399A-444E-966D-AD974A23E7FE}';
+  WORKER_TEXT_KEY: TGUID = '{D73562BB-3465-4F46-8C3C-C71A3A273289}';
+  WORKER_ERROR_KEY: TGUID = '{57C76A8A-023A-4342-936A-2F8250EB57DF}';
+
 implementation
 
 uses
@@ -41,6 +46,7 @@ end;
 function TWorkerExample.WorkerTXT: TWorkerConfig;
 begin
   Result := TWorkerConfig.Create(
+    WORKER_TEXT_KEY,
     'Worker Test TXT',
     1000 * 10,
     procedure
@@ -53,6 +59,7 @@ end;
 function TWorkerExample.WorkerCONSOLE: TWorkerConfig;
 begin
   Result :=  TWorkerConfig.Create(
+    WORKER_CONSOLE_KEY,
     'Worker Test CONSOLE',
     1000 * 15,
     procedure
@@ -65,6 +72,7 @@ end;
 function TWorkerExample.WorkerERROR: TWorkerConfig;
 begin
   Result :=  TWorkerConfig.Create(
+    WORKER_ERROR_KEY,
     'Worker Test ERROR',
     1000 * 20,
     procedure
