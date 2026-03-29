@@ -8,6 +8,7 @@ uses
 type
   TWorkerConfig = class
   private
+    FKey: string;
     FName: string;
     FInterval: Integer;
     FProc: TProc;
@@ -17,9 +18,14 @@ type
     FRunnings: Integer;
     FSuccessfulRunnings: Integer;
     function GetRunnable: Boolean;
+    procedure SetKey(const Value: string);
   public
-    constructor Create(const AName: string; const AInterval: Integer; AProc: TProc; const AEnabled: Boolean = True);
+    constructor Create(const AName: string; const AInterval: Integer; AProc: TProc;
+      const AEnabled: Boolean = True); overload;
+    constructor Create(const AKey: TGUID; const AName: string; const AInterval: Integer; AProc: TProc;
+      const AEnabled: Boolean = True); overload;
 
+    property Key: string read FKey write SetKey;
     property Name: string read FName write FName;
     property Interval: Integer read FInterval write FInterval;
     [SwagIgnore]
@@ -35,19 +41,39 @@ implementation
 
 { TWorkerConfig }
 
-function TWorkerConfig.GetRunnable: Boolean;
+constructor TWorkerConfig.Create(const AKey: TGUID; const AName: string; const AInterval: Integer; AProc: TProc;
+  const AEnabled: Boolean);
 begin
-  Result := (Self.Enabled) and Assigned(Self.Proc);
-end;
-
-constructor TWorkerConfig.Create(const AName: string; const AInterval: Integer; AProc: TProc; const AEnabled: Boolean);
-begin
+  SetKey(AKey.ToString);
   FName := AName;
   FInterval := AInterval;
   FProc := AProc;
   FEnabled := AEnabled;
   FRunnings := 0;
   FSuccessfulRunnings := 0;
+end;
+
+constructor TWorkerConfig.Create(const AName: string; const AInterval: Integer; AProc: TProc; const AEnabled: Boolean);
+begin
+  var LKey := TGUID.NewGuid;
+  Create(LKey, AName, AInterval, AProc, AEnabled);
+end;
+
+function TWorkerConfig.GetRunnable: Boolean;
+begin
+  Result := (Self.Enabled) and Assigned(Self.Proc);
+end;
+
+procedure TWorkerConfig.SetKey(const Value: string);
+var
+  LGuid: TGUID;
+begin
+  try
+    LGuid := StringToGUID(Value);
+  except
+    raise Exception.Create('A chave do Worker deve ser um GUID válido');
+  end;
+  FKey := Value.Replace('{','').Replace('}','');
 end;
 
 end.
