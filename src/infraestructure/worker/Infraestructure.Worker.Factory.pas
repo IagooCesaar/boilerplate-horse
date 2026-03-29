@@ -3,10 +3,11 @@ unit Infraestructure.Worker.Factory;
 interface
 
 uses
-  Infraestructure.Worker.Intf;
+  Infraestructure.Worker.Intf, Infraestructure.Worker.Config;
 
 type
   TWorkerFactory = class(TInterfacedObject, IWorkerFactory)
+    procedure AddWorkers(const AWorkers: TArray<TWorkerConfig>);
   public
     class function New: IWorkerFactory;
 
@@ -19,9 +20,17 @@ type
 implementation
 
 uses
-  Infraestructure.Worker.Registry, Infraestructure.Worker.Config, Infraestructure.Worker.Main, Worker.Example;
+  Infraestructure.Worker.Registry, Infraestructure.Worker.Main, Worker.Example;
 
 { TWorkenFactory }
+
+procedure TWorkerFactory.AddWorkers(const AWorkers: TArray<TWorkerConfig>);
+begin
+  for var LWorker in  AWorkers do
+  begin
+    TWorkerRegistry.GetInstance.AddWorker(LWorker);
+  end;
+end;
 
 function TWorkerFactory.GracefullShuttdown: IWorkerFactory;
 begin
@@ -37,11 +46,7 @@ end;
 function TWorkerFactory.Registry: IWorkerFactory;
 begin
   Result := Self;
-  var LExampleWorkers := TWorkerExample.New.GetWorkers;
-  for var LWorker in  LExampleWorkers do
-  begin
-    TWorkerRegistry.GetInstance.AddWorker(LWorker);
-  end;
+  AddWorkers(TWorkerExample.New.GetWorkers);
 end;
 
 function TWorkerFactory.Run: IWorkerFactory;
