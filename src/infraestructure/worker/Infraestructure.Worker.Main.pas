@@ -44,16 +44,17 @@ begin
 
   while not FGracefullShuttdown do
   begin
-    try
-      LWorkerLocal.Runnings := LWorkerLocal.Runnings + 1;
+    if LWorkerLocal.Runnable then
+      try
+        LWorkerLocal.Runnings := LWorkerLocal.Runnings + 1;
 
-      LWorkerLocal.Proc();
+        LWorkerLocal.Proc();
 
-      LWorkerLocal.SuccessfulRunnings := LWorkerLocal.SuccessfulRunnings + 1;
-    except
-      on E: Exception do
-        TExceptionHandlerManager.GetInstance.Handle(LWorkerLocal, E);
-    end;
+        LWorkerLocal.SuccessfulRunnings := LWorkerLocal.SuccessfulRunnings + 1;
+      except
+        on E: Exception do
+          TExceptionHandlerManager.GetInstance.Handle(LWorkerLocal, E);
+      end;
 
     repeat
       if LRemaingInterval > ONE_SECOND then
