@@ -36,7 +36,8 @@ uses
   Infraestructure.Worker.Factory in 'src\infraestructure\worker\Infraestructure.Worker.Factory.pas',
   Worker.Example in 'src\workers\Worker.Example.pas',
   Infraestructure.Worker.Horse in 'src\infraestructure\worker\Infraestructure.Worker.Horse.pas',
-  Infraestructure.Worker.ExceptionHandler in 'src\infraestructure\worker\Infraestructure.Worker.ExceptionHandler.pas';
+  Infraestructure.Worker.ExceptionHandler in 'src\infraestructure\worker\Infraestructure.Worker.ExceptionHandler.pas',
+  Infraestructure.Worker.DTO.Patch in 'src\infraestructure\worker\Infraestructure.Worker.DTO.Patch.pas';
 
 begin
   var App := TApp.GetInstance;
