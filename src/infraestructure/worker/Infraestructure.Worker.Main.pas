@@ -102,17 +102,26 @@ begin
     LWorker := LWorkers[I];
     LWorker.ArrayIndex := I;
 
-    if not LWorker.Runnable then
+    if not Assigned(LWorker.Proc) then
     begin
       {$IFDEF CONSOLE}
       Writeln(Format('Worker "%s" will not start', [LWorker.Name]));
       {$ENDIF}
       Continue;
+    end
+    else
+    if not LWorker.Runnable then
+    begin
+      {$IFDEF CONSOLE}
+      Writeln(Format('Worker "%s" was registered but not will start', [LWorker.Name]));
+      {$ENDIF}
+    end
+    else
+    begin
+      {$IFDEF CONSOLE}
+      Writeln(Format('Starting Worker "%s" with interval %d', [LWorker.Name, LWorker.Interval]));
+      {$ENDIF}
     end;
-
-    {$IFDEF CONSOLE}
-    Writeln(Format('Starting Worker "%s" with interval %d', [LWorker.Name, LWorker.Interval]));
-    {$ENDIF}
 
     TTask.Run(LWorker, ExecuteTask);
 
