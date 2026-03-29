@@ -18,6 +18,7 @@ type
 
     procedure AddWorker(const AWorker: TWorkerConfig);
     function GetWorkers: TArray<TWorkerConfig>;
+    function EnableWorker(const AKey: string; AEnable: Boolean): Boolean;
   end;
 
 implementation
@@ -55,6 +56,24 @@ begin
   FreeAndNil(FWorkers);
 
   inherited;
+end;
+
+function TWorkerRegistry.EnableWorker(const AKey: string; AEnable: Boolean): Boolean;
+begin
+  Result := False;
+  GLock.Acquire;
+  try
+    for var LWorker in FWorkers do
+    begin
+      if not(LWorker.Key = AKey) then
+        Continue;
+
+      LWorker.Enabled := AEnable;
+      Result := True;
+    end;
+  finally
+    GLock.Release;
+  end;
 end;
 
 class function TWorkerRegistry.GetInstance: TWorkerRegistry;
