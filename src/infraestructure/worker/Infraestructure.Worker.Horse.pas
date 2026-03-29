@@ -52,6 +52,11 @@ begin
   end;
 end;
 
+procedure PatchAllWorkers(ARequest: THorseRequest; AResponse: THorseResponse; ANext: TProc);
+begin
+  TWorkerRegistry.GetInstance.DisableAllWorkers;
+end;
+
 function WorkerCallback: THorseCallback; overload;
 begin
   Result := WorkerCallback('');
@@ -61,7 +66,8 @@ function WorkerCallback(const AContext: string): THorseCallback;
 begin
   THorse.GetInstance
     .Get(AContext + '/workers', GetWorkers)
-    .Patch(AContext + '/workers/:key', PatchWorker);
+    .Patch(AContext + '/workers/:key', PatchWorker)
+    .Patch(AContext + '/workers/disable-all', PatchAllWorkers);
 
   Swagger
     .Path('/workers')
@@ -76,6 +82,13 @@ begin
       .PATCH
         .AddParamPath('key', 'UUID identificador do Worker').&End
         .AddParamBody('body').Schema(TWorkerDtoPatch).IsArray(False).&End
+        .AddResponse(200).&End
+        .AddResponse(404).&End
+      .&End
+    .&End
+    .Path('/workers/disable-all')
+    .Tag('Workers')
+      .PATCH
         .AddResponse(200).&End
         .AddResponse(404).&End
       .&End

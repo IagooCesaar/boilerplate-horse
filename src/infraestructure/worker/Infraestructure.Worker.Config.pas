@@ -17,7 +17,7 @@ type
     FArrayIndex: Integer;
     FRunnings: Integer;
     FSuccessfulRunnings: Integer;
-    function GetRunnable: Boolean;
+
     procedure SetKey(const Value: string);
   public
     constructor Create(const AName: string; const AInterval: Integer; AProc: TProc;
@@ -34,7 +34,9 @@ type
     property ArrayIndex: Integer read FArrayIndex write FArrayIndex;
     property Runnings: Integer read FRunnings write FRunnings;
     property SuccessfulRunnings: Integer read FSuccessfulRunnings write FSuccessfulRunnings;
-    property Runnable: Boolean read GetRunnable;
+
+    [SwagIgnore]
+    function Runnable: Boolean;
   end;
 
 implementation
@@ -59,7 +61,7 @@ begin
   Create(LKey, AName, AInterval, AProc, AEnabled);
 end;
 
-function TWorkerConfig.GetRunnable: Boolean;
+function TWorkerConfig.Runnable: Boolean;
 begin
   Result := (Self.Enabled) and Assigned(Self.Proc);
 end;

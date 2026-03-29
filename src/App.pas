@@ -206,7 +206,7 @@ begin
     procedure begin
       {$IF defined(CONSOLE) and (not defined(TEST))}
       Writeln(Format('Server is runing on %s:%d', [THorse.Host, THorse.Port]));
-      Writeln(Format('Try use Swagger on %s', [Context+'\'+SwaggerURL]));
+      Writeln(Format('Try use Swagger on %s', [Context+SwaggerURL]));
       Readln;
 
       Writeln('Shutting down workers gracefully...');

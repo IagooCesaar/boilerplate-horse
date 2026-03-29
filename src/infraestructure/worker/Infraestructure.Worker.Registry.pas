@@ -19,6 +19,7 @@ type
     procedure AddWorker(const AWorker: TWorkerConfig);
     function GetWorkers: TArray<TWorkerConfig>;
     function EnableWorker(const AKey: string; AEnable: Boolean): Boolean;
+    procedure DisableAllWorkers;
   end;
 
 implementation
@@ -67,6 +68,22 @@ begin
   FreeAndNil(FWorkers);
 
   inherited;
+end;
+
+procedure TWorkerRegistry.DisableAllWorkers;
+begin
+  GLock.Acquire;
+  try
+    for var LWorker in FWorkers do
+    begin
+      LWorker.Enabled := False;
+      {$IFDEF CONSOLE}
+      Writeln(Format('Worker "%s" was %s', [LWorker.Name, IfThen(LWorker.Enabled,'enabled', 'disabled')]));
+      {$ENDIF}
+    end;
+  finally
+    GLock.Release;
+  end;
 end;
 
 function TWorkerRegistry.EnableWorker(const AKey: string; AEnable: Boolean): Boolean;
