@@ -24,7 +24,7 @@ type
 implementation
 
 uses
-  System.SysUtils, System.SyncObjs;
+  System.SysUtils, System.SyncObjs, System.StrUtils;
 
 var
   GLock: TCriticalSection; // thread-safe
@@ -70,6 +70,10 @@ begin
 
       LWorker.Enabled := AEnable;
       Result := True;
+
+      {$IFDEF CONSOLE}
+      Writeln(Format('Worker "%s" was %s', [LWorker.Name, IfThen(LWorker.Enabled,'enabled', 'disabled')]));
+      {$ENDIF}
     end;
   finally
     GLock.Release;
